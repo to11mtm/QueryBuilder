@@ -18,8 +18,8 @@ There are some significant rough edges, however:
     - Comment them out or use Conditionals in preprocessor.
 
  - There's almost no caching of reflection data here
-  - Can be added later
-  - I'm not sure how cacheable what we are using is, given how simple the use-cases are.
+   - Can be added later
+   - I'm not sure how cacheable what we are using is, given how simple the use-cases are.
 
  - This is a design that probably could use some cleanup right out of the gate.
    - I am least proud of how we are assembling the SQL. Specifically parameters.
@@ -29,10 +29,10 @@ There are some significant rough edges, however:
  Things that would be cool to have, but are not a priority. Code for this is not in a working state:
 
   - Joins: It's just super painful to get good syntax.
-   - Dapper Join Syntax is tricky to build on the fly, especially when IDs are not called 'ID'
-   - The In-Progress implementation is based on Multiple-Queries on a single Roundtrip. You can only join two tables together.
-     - Implementing more joins probably gets tricky. 
+    - Dapper Join Syntax is tricky to build on the fly, especially when IDs are not called 'ID'
+    - The In-Progress implementation is based on Multiple-Queries on a single Roundtrip. You can only join two tables together.
+       - Implementing more joins gets trickier from a language standpoint. Do I want to join between A-B? A-C? A+B-C?
 
  Things that aren't here that I'll likely never care about:
   - Oracle Specific Behavior for Huge (1000+) items in a list for a Where clause. 
-    - It can be done, but it's not a good practice most of the time anyway; sending that many variables over the wire will hurt, to say nothing of what your DBA will say when they see the query plan.
+     - It can be done, but it's not a good practice most of the time anyway; sending that many variables over the wire will hurt, to say nothing of what your DBA will say when they see the query plan.
